@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,12 +33,23 @@ namespace Form_Test
                     //ボタン内のテキストを設定
                     testBotton.Text = "絶対に押すな";
 
+                    //Click EventにkirakiraClick関数を登録
+                    testBotton.Click += kirakiraClick;
+
+
                     //コントロールにボタンを追加
                     Controls.Add(testBotton);
                 }
             }
         }
 
+        //自分で作成することも可能
+        private void kirakiraClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("ボタンを押したあなたは今から60秒後に4ぼうします。");
+        }
+        
+        
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("ようこそ！C#の世界へ！");
