@@ -12,7 +12,7 @@ namespace Form_Test
     internal class TestBotton : Button
     {
         /// <summary>onの時の色</summary>
-        private Color _onColor = Color.HotPink;
+        private Color _onColor = Color.Blue;
         
         /// <summary>offの時の色</summary>
         private Color _offColor = Color.White;
@@ -23,7 +23,7 @@ namespace Form_Test
 
         /// <summary>onとoffの設定</summary>
         /// <param name="on"></param>
-        public void Dolphin(bool on)
+        public void SetEnable(bool on)
         {
             _enable = on;
             if (on)
@@ -45,7 +45,7 @@ namespace Form_Test
             //ボタン内のテキストを設定
             Text = text;
 
-            Dolphin(false);
+            SetEnable(false);
 
             Click += kirakiraClick;
         }
@@ -53,7 +53,7 @@ namespace Form_Test
         //自分で作成することも可能
         private void kirakiraClick(object sender, EventArgs e)
         {
-            Dolphin(!_enable);
+            SetEnable(!_enable);
     　　}
     } 
 }

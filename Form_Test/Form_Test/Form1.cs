@@ -34,28 +34,40 @@ namespace Form_Test
         /// </summary>
         const int BOARD_SIZE_Y = 3;
 
+        private TestBotton[,] _ButtonArray;
+
+
+
+
         public Form1()
         {
             InitializeComponent();
+
+            _ButtonArray = new TestBotton[BOARD_SIZE_X, BOARD_SIZE_Y];
 
             for (int i = 0; i < BOARD_SIZE_X; i++)
             {
                 for (int j = 0; j < BOARD_SIZE_Y; j++)
                 {
-                    //インスタンスの生成
+                    // インスタンスの生成
                     TestBotton testBotton =
                         new TestBotton(new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * j)
                         , new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y), "");
-                    
-                    //コントロールにボタンを追加
+
+                    // 配列にボタンの参照を追加
+                    _ButtonArray[i, j] = testBotton;
+
+                    // コントロールにボタンを追加
                     Controls.Add(testBotton);
                 }
             }
+
+            _ButtonArray[0, 0].SetEnable(true);
         }
 
 
         
-        //自動生成
+        // 自動生成
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("ようこそ！C#の世界へ！");
