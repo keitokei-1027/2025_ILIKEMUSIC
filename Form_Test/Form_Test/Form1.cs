@@ -76,12 +76,5 @@ namespace Form_Test
 
             return _ButtonArray[y, x];
         }
-
-        
-        // 自動生成
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("ようこそ！C#の世界へ！");
-        }
     }
 }

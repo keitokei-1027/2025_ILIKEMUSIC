@@ -100,11 +100,7 @@ namespace Form_Test
                 {
                     button.Toggle();
                 }
-
             }
-
-
-
         }
 
         private int[][] _toggleData =
