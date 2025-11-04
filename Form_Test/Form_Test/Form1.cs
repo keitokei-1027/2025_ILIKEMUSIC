@@ -51,8 +51,11 @@ namespace Form_Test
                 {
                     // インスタンスの生成
                     TestBotton testBotton =
-                        new TestBotton(new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * j)
-                        , new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y), "");
+                        new TestBotton(
+                            this,
+                            new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * j),
+                            new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),
+                            "");
 
                     // 配列にボタンの参照を追加
                     _ButtonArray[i, j] = testBotton;
@@ -61,10 +64,12 @@ namespace Form_Test
                     Controls.Add(testBotton);
                 }
             }
-
-            _ButtonArray[0, 0].SetEnable(true);
         }
 
+        public TestBotton GetTestButton(int x, int y)
+        {
+            return _ButtonArray[y, x];
+        }
 
         
         // 自動生成
