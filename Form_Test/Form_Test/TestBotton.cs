@@ -13,7 +13,7 @@ namespace Form_Test
     {
         /// <summary>onの時の色</summary>
         private Color _onColor = Color.Blue;
-        
+
         /// <summary>offの時の色</summary>
         private Color _offColor = Color.White;
 
@@ -28,15 +28,15 @@ namespace Form_Test
 
         /// <summary>縦位置</summary>
         private int _y;
-        
-        public TestBotton(Form1 form1,　int x , int y, Size size, string text)
+
+        public TestBotton(Form1 form1, int x, int y, Size size, string text)
         {
             //Form1の参照を保管
             _form1 = form1;
-            
+
             //横位置を保管
             _x = x;
-            
+
             //縦位置を保管
             _y = y;
 
@@ -83,7 +83,38 @@ namespace Form_Test
         /// <param name="e"></param>
         private void kirakiraClick(object sender, EventArgs e)
         {
-            _form1.GetTestButton(_x, _y).Toggle();
-    　　}
+            //　楽な書き方
+            //_form1.GetTestButton(_x, _y)?.Toggle();
+            //_form1.GetTestButton(_x + 1, _y)?.Toggle();
+            //_form1.GetTestButton(_x - 1, _y)?.Toggle();
+            //_form1.GetTestButton(_x, _y + 1)?.Toggle();
+            //_form1.GetTestButton(_x, _y - 1)?.Toggle();
+
+            //　かっこいい書き方
+            for (int i = 0; i < _toggleData.Length; i++)
+            {
+                var data = _toggleData[i];
+                var button = _form1.GetTestButton(_x + data[0], _y + data[1]);
+
+                if (button != null)
+                {
+                    button.Toggle();
+                }
+
+            }
+
+
+
+        }
+
+        private int[][] _toggleData =
+        {
+            new int[]{0,0 },
+            new int[]{1,0 },
+            new int[]{-1,0 },
+            new int[]{0,1 },
+            new int[]{0,-1 },
+        };
+
     } 
 }
