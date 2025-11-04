@@ -57,21 +57,23 @@ namespace Form_Test
                         new TestBotton(
                             this,
                             i, j,
-                            new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * j),
                             new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),
                             "");
 
                     // 配列にボタンの参照を追加
-                    _ButtonArray[i, j] = testBotton;
+                    _ButtonArray[j, i] = testBotton;
 
                     // コントロールにボタンを追加
                     Controls.Add(testBotton);
                 }
             }
         }
-
         public TestBotton GetTestButton(int x, int y)
         {
+            //配列外参照対策
+            if (x < 0 || x >= BOARD_SIZE_X) return null;
+            if (y < 0 || y >= BOARD_SIZE_Y) return null;
+
             return _ButtonArray[y, x];
         }
 
