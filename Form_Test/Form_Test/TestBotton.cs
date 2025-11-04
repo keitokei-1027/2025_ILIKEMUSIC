@@ -22,11 +22,23 @@ namespace Form_Test
 
         /// <summary>Form1の参照</summary>
         private Form1 _form1;
+
+        /// <summary>横位置</summary>
+        private int _x;
+
+        /// <summary>縦位置</summary>
+        private int _y;
         
-        public TestBotton(Form1 form1,Point position, Size size, string text)
+        public TestBotton(Form1 form1,　int x , int y, Point position, Size size, string text)
         {
-            // Form1の参照を保管
+            //Form1の参照を保管
             _form1 = form1;
+            
+            //横位置を保管
+            _x = x;
+            
+            //縦位置を保管
+            _y = y;
 
             //ボタンの位置を設定
             Location = position;
@@ -58,10 +70,15 @@ namespace Form_Test
         }
 
         //自分で作成することも可能
+        /// <summary>
+        /// 各ボタンがクリックされたときに呼び出される関数
+        /// クリックイベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void kirakiraClick(object sender, EventArgs e)
         {
-            _form1.GetTestButton(1, 2).SetEnable(true);
-
+            _form1.GetTestButton(_x, _y).SetEnable(true);
     　　}
     } 
 }

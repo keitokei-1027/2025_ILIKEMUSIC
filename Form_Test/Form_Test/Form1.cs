@@ -13,7 +13,10 @@ namespace Form_Test
 {
     public partial class Form1 : Form
     {
+        // ctrl + Rキー2回をやると、効率よく名前をまとめて変更できる。
+
         // constをつけると初期化時のみ値の変更が可能になる。
+        
         /// <summary>
         /// ボタンの横幅
         /// </summary>
@@ -53,6 +56,7 @@ namespace Form_Test
                     TestBotton testBotton =
                         new TestBotton(
                             this,
+                            i, j,
                             new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * j),
                             new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),
                             "");
