@@ -29,6 +29,8 @@ namespace Form_Test
         /// <summary>縦位置</summary>
         private int _y;
 
+        public bool IsOn => _enable;
+
         public TestBotton(Form1 form1, int x, int y, Size size, string text)
         {
             //Form1の参照を保管
@@ -101,6 +103,8 @@ namespace Form_Test
                     button.Toggle();
                 }
             }
+
+            _form1.CheckClearAndRestart();
         }
 
         private int[][] _toggleData =
@@ -111,6 +115,5 @@ namespace Form_Test
             new int[]{0,1 },
             new int[]{0,-1 },
         };
-
     } 
 }
